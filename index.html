@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <title>Выбор плана</title>
+
+</head>
+
+<body>
+
+  <div id="container">
+    <div class="mobile_img_steps">
+      <img src="images/bg-sidebar-mobile.svg" alt="bg-sidebar-mobile">
+      <div class="steps_box_mobile">
+        <div class="step">
+          <span class="circle pinfo_cir_mb">1</span>
+        </div>
+        <div class="step">
+          <span class="circle plan_cir_mb">2</span>
+        </div>
+        <div class="step">
+          <span class="circle addons_cir_mb">3</span>
+        </div>
+        <div class="step">
+          <span class="circle summary_cir_mb">4</span>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="left_box">
+        <img src="images/bg-sidebar-desktop.svg" alt="bg-sidebar-desktop">
+        <div class="steps_box">
+          <div class="step">
+            <span class="circle pinfo_cir">1</span>
+            <p>ШАГ 1<br><span>ВАШИ ДАННЫЕ</span></p>
+          </div>
+          <div class="step">
+            <span class="circle plan_cir">2</span>
+            <p>ШАГ 2<br><span>ВЫБЕРИ ПЛАН</span></p>
+          </div>
+          <div class="step">
+            <span class="circle addons_cir">3</span>
+            <p>ШАГ 3<br><span>ДОБАВЬ ОПЦИИ</span></p>
+          </div>
+          <div class="step">
+            <span class="circle summary_cir">4</span>
+            <p>ШАГ 4<br><span>ПОДТВЕРЖДЕНИЕ</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="right_box">
+        <!-- Personal Info -->
+        <div class="personal_info active">
+          <h3>Персональные данные</h3>
+          <p>Пожалуйста, введите ваше имя, адрес электронной почты и телефон.</p>
+          <form>
+            <label>Имя</label>
+            <label class="error_message"><span id="nameErrM"></span></label>
+            <input type="text" name="name" id="name" placeholder="Александр Пушкин" autocomplete="off">
+            <label>Email</label>
+            <label class="error_message"><span id="emailErrM"></span></label>
+            <input type="text" name="email" id="email" placeholder="poet@mail.ru" autocomplete="off">
+            <label>Телефон</label>
+            <label class="error_message"><span id="phNoErrM"></span></label>
+            <input type="tel" name="phone" id="phone" placeholder="+7 999 888 77 66" autocomplete="off">
+            <input type="submit" name="nextStep" class="nextStep" value="Далее"
+              onclick="validatePersonalInfo(event)">
+          </form>
+        </div>
+
+        <!-- Select Plan -->
+        <div class="select_plan">
+          <h3>Выбери план</h3>
+          <p>Можно оплачивать каждый месяц или раз в год.</p>
+          <div class="three_plans">
+            <div class="plan_box arcade" onclick="arcade()">
+              <img src="images/icon-arcade.svg" alt="icon-arcade">
+              <div>
+                <h4>Standard</h4>
+                <p class="arcadeMPrice arcadeYPrice">900 руб/мес</p>
+                <span class="monthsFree"></span>
+              </div>
+            </div>
+            <div class="plan_box advanced" onclick="advanced()">
+              <img src="images/icon-advanced.svg" alt="icon-advanced">
+              <div>
+                <h4>Advanced</h4>
+                <p class="advancedMPrice advancedYPrice">1200 руб/мес</p>
+                <span class="monthsFree"></span>
+              </div>
+            </div>
+            <div class="plan_box pro" onclick="pro()">
+              <img src="images/icon-pro.svg" alt="icon-pro">
+              <div>
+                <h4>Pro</h4>
+                <p class="proMPrice proYPrice">1500 руб/мес</p>
+                <span class="monthsFree"></span>
+              </div>
+            </div>
+          </div>
+          <div class="monthly_yearly">
+            <h5 id="monthly">Каждый месяц</h5>
+            <div class="ball-switch monthly">
+              <span class="switch-body">
+                <span class="toggle"></span>
+              </span>
+            </div>
+            <h5 id="yearly">Раз в год</h5>
+          </div>
+          <button class="goBack" onclick="goBacks()">Назад</button>
+          <input type="submit" name="nextStep" class="nextStep" value="Далее" onclick="selectPlan()">
+        </div>
+
+        <!-- Add Ons -->
+        <div class="add_ons">
+          <h3>Добавь опции</h3>
+          <p>Дополнительные опции помогают улучшить игровой опыт.</p>
+          <div class="three_addons">
+            <div class="addon_box online_service">
+              <svg onclick="onlineService()" class="onlineServiceCbo active" xmlns="http://www.w3.org/2000/svg"
+                width="20" height="20" viewBox="0 0 12 9">
+                <path fill="none" stroke="hsl(0, 0%, 100%)" stroke-width="2" d="m1 4 3.433 3.433L10.866 1" />
+              </svg>
+              <div>
+                <h4>Играть онлайн</h4>
+                <p>Доступ к многопользовательским играм</p>
+              </div>
+              <span class="OnlineServicePrice">+100 руб/мес</span>
+            </div>
+            <div class="addon_box larger_storage">
+              <svg onclick="largerStorage()" class="checkbox largerStorageCbo" xmlns="http://www.w3.org/2000/svg"
+                width="20" height="20" viewBox="0 0 12 9">
+                <path fill="none" stroke="hsl(0, 0%, 100%)" stroke-width="2" d="m1 4 3.433 3.433L10.866 1" />
+              </svg>
+              <div>
+                <h4>Больше места для хранения</h4>
+                <p>Дополнительный 1 ТБ в облаке</p>
+              </div>
+              <span class="largerStoragePrice">+200 руб/мес</span>
+            </div>
+            <div class="addon_box customizable_profile">
+              <svg onclick="customizableProfile()" class="checkbox customizableProfileCbo"
+                xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 12 9">
+                <path fill="none" stroke="hsl(0, 0%, 100%)" stroke-width="2" d="m1 4 3.433 3.433L10.866 1" />
+              </svg>
+              <div>
+                <h4>Настраиваемый профиль</h4>
+                <p>Пользовательская тема в вашем профиле</p>
+              </div>
+              <span class="customizableProfilePrice">+200 руб/мес</span>
+            </div>
+            <span id="AddOnsErrM">Пожалуйста, выберите хотя бы одно дополнение.</span>
+          </div>
+          <button class="goBack" onclick="goBacks()">Назад</button>
+          <input type="submit" name="nextStep" class="nextStep" value="Далее" onclick="addOnsFunc()">
+        </div>
+
+        <!-- Summary -->
+        <div class="summary">
+          <h3>На финишной прямой</h3>
+          <p>Прежде чем подтвердить, проверьте, все ли верно.</p>
+          <div class="summary_box">
+            <div class="above_line">
+              <div>
+                <div class="title_box">
+                  <h4 id="planTitle">Standard</h4>
+                  <span id="MorYTxt">(Каждый месяц)</span>
+                </div>
+                <p onclick="changePlan()">Изменить</p>
+              </div>
+              <span id="planPrice">900 руб/мес</span>
+            </div>
+            <hr id="hori_row">
+            <div class="below_line"></div>
+          </div>
+          <div class="total_box">
+            <p>Общая сумма (в месяц)</p>
+            <span class="summary_total">+900 руб/мес</span>
+          </div>
+          <button class="goBack" onclick="goBacks()">Назад</button>
+          <input type="submit" name="confirm" class="confirm" value="Подтвердить" onclick="confirmSub()">
+        </div>
+
+        <!-- Thank You -->
+        <div class="thankyou">
+          <div class="thankyou_box">
+            <div class="thankyou_content">
+              <img src="images/icon-thank-you.svg" alt="icon-thank-you">
+              <h3>Спасибо!</h3>
+              <p>Спасибо за подписку! Мы надеемся, что вам понравится использовать нашу платформу. Если вам когда-нибудь понадобится поддержка, напишите нам по адресу support@loremgaming.com.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="white_bg_mb"></div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

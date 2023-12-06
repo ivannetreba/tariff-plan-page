@@ -1,0 +1,643 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: hsl(217, 100%, 97%);
+}
+
+#container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile_img_steps {
+    display: none;
+}
+
+.card {
+    width: 1000px;
+    height: 630px;
+    background-color: hsl(0, 0%, 100%);
+    margin: 25px;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 2px 3px 20px hsl(229, 24%, 87%);
+    display: flex;
+}
+
+.left_box {
+    width: 30%;
+    height: 100%;
+    position: relative;
+}
+
+.left_box img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.steps_box {
+    width: 100%;
+    position: absolute;
+    top: 7%;
+    left: 12%;
+}
+
+.step {
+    width: 88%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.circle {
+    padding: 7px 11.7px;
+    border-radius: 100%;
+    border: 1px solid hsl(231, 100%, 99%);
+    background-color: transparent;
+    margin-right: 15px;
+}
+
+.step p {
+    font-size: 14px;
+    color: hsl(234, 26%, 79%);
+}
+
+.step span {
+    color: hsl(231, 100%, 99%);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.right_box {
+    width: 70%;
+    height: 100%;
+    padding: 30px 68px 20px 80px;
+}
+
+.right_box h3 {
+    color: hsl(213, 96%, 18%);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.right_box p {
+    color: hsl(231, 11%, 63%);
+    margin-bottom: 40px;
+}
+
+/* Personal Info */
+
+.personal_info {
+    height: 100%;
+    position: relative;
+}
+
+.personal_info label,
+.personal_info input {
+    color: hsl(213, 59%, 32%);
+    font-size: 16px;
+}
+
+.personal_info input::placeholder {
+    color: hsl(231, 11%, 63%);
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+#name,
+#email,
+#phone {
+    width: 100%;
+    padding: 15px;
+    font-weight: 700;
+    border: none;
+    outline: 0.1px solid hsl(227, 27%, 86%);
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+
+.nextStep {
+    border: none;
+    background-color: hsl(213, 96%, 18%);
+    color: hsl(231, 100%, 99%) !important;
+    font-size: 16px;
+    padding: 12px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.nextStep:hover {
+    background-color: hsl(213, 59%, 32%);
+}
+
+.error_message {
+    position: absolute;
+    right: 0;
+    font-size: 15px !important;
+    color: hsl(354, 84%, 57%) !important;
+    font-weight: 500;
+}
+
+/* Select Plan */
+.select_plan {
+    width: auto;
+    height: 100%;
+    position: relative;
+}
+
+.three_plans {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.plan_box {
+    width: 31%;
+    height: 100%;
+    border: 1px solid hsl(227, 27%, 86%);
+    border-radius: 7px;
+    padding: 20px 18px 18px;
+    cursor: pointer;
+}
+
+.plan_box:hover {
+    border: 1px solid hsl(243, 100%, 62%);
+}
+
+.arcade {
+    background-color: hsl(217, 100%, 97%);
+    border: 1px solid hsl(243, 100%, 62%);
+}
+
+.plan_box img {
+    width: 50px;
+    height: 50px;
+}
+
+.plan_box h4 {
+    font-size: larger;
+    font-weight: 500;
+    color: hsl(213, 59%, 32%);
+    margin-top: 45px;
+}
+
+.plan_box p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.monthsFree {
+    color: hsl(213, 59%, 32%);
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.monthly_yearly {
+    width: 100%;
+    height: 10%;
+    background-color: hsl(217, 100%, 97%);
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.monthly_yearly h5 {
+    color: hsl(231, 11%, 63%);
+    font-size: medium;
+    font-weight: 500;
+}
+
+#monthly {
+    color: hsl(213, 59%, 32%);
+}
+
+.ball-switch {
+    margin: 0 25px;
+
+    .switch-body {
+        border-radius: 999px;
+        display: inline-flex;
+        cursor: pointer;
+        width: 40px;
+        background-color: hsl(213, 96%, 18%);
+        transition: all 0.3s ease;
+
+        .toggle {
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            margin: 4px;
+            background-color: hsl(0, 0%, 100%);
+            transition: transform 0.4s ease;
+        }
+    }
+
+    &.yearly .switch-body {
+        background-color: hsl(213, 96%, 18%);
+
+        .toggle {
+            transform: translateX(100%);
+        }
+    }
+}
+
+.goBack {
+    border: none;
+    background-color: transparent;
+    color: hsl(231, 11%, 63%);
+    font-size: 16px;
+    font-weight: 700;
+    padding: 12px 20px;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.goBack:hover {
+    color: hsl(213, 59%, 32%);
+}
+
+/* Add Ons */
+
+.add_ons {
+    height: 100%;
+    position: relative;
+}
+
+.three_addons {
+    width: 100%;
+    height: 62%;
+    position: relative;
+}
+
+.addon_box {
+    width: 100%;
+    margin: 20px 0;
+    border: 1px solid hsl(227, 27%, 86%);
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.addon_box:hover {
+    border: 1px solid hsl(243, 100%, 62%);
+}
+
+.online_service {
+    background-color: hsl(217, 100%, 97%);
+    border: 1px solid hsl(243, 100%, 62%);
+}
+
+.onlineServiceCbo {
+    background-color: hsl(243, 100%, 62%);
+    padding: 4px;
+    margin: 0 25px;
+    border-radius: 3px;
+}
+
+.checkbox {
+    padding: 4px;
+    margin: 0 25px;
+    border-radius: 3px;
+    border: 1px solid hsl(227, 27%, 86%);
+}
+
+.addon_box h4 {
+    font-size: larger;
+    font-weight: 500;
+    color: hsl(213, 59%, 32%);
+    margin-top: 20px;
+}
+
+.addon_box p {
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.addon_box span {
+    position: absolute;
+    right: 5%;
+    color: hsl(243, 100%, 62%);
+}
+
+#AddOnsErrM {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: hsl(354, 84%, 57%);
+    font-weight: 500;
+}
+
+/* Summary */
+.summary {
+    height: 100%;
+    position: relative;
+}
+
+.summary_box {
+    width: 100%;
+    padding: 5px 28px 28px;
+    background-color: hsl(217, 100%, 97%);
+    border-radius: 7px;
+}
+
+.summary_box h4 {
+    color: hsl(213, 59%, 32%);
+    font-size: larger;
+    font-weight: 500;
+}
+
+.above_line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title_box {
+    display: flex;
+    align-items: center;
+}
+
+.above_line h4,
+#MorYTxt {
+    margin-top: 18px;
+    margin-right: 5px;
+}
+
+.above_line p {
+    text-decoration: underline;
+    text-decoration-color: hsl(231, 11%, 63%);
+    text-decoration-thickness: 2px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 28px;
+}
+
+.above_line p:hover {
+    color: hsl(243, 100%, 62%);
+    text-decoration-color: hsl(243, 74%, 52%);
+}
+
+.above_line span {
+    color: hsl(213, 59%, 32%);
+    font-size: large;
+    font-weight: 500;
+}
+
+#hori_row {
+    border: none;
+    outline: 0.1px solid hsl(227, 37%, 90%);
+}
+
+.below_line {
+    height: 100%;
+}
+
+.summary_addon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.summary_addon p {
+    margin-bottom: 0;
+}
+
+.summaryAddonPrice {
+    color: hsl(213, 59%, 32%) !important;
+}
+
+.total_box {
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 28px;
+}
+
+.summary_total {
+    color: hsl(243, 100%, 62%) !important;
+    font-size: larger;
+    font-weight: 500;
+}
+
+.confirm {
+    border: none;
+    background-color: hsl(243, 100%, 62%);
+    color: hsl(231, 100%, 99%) !important;
+    font-size: 16px;
+    padding: 12px 27px;
+    border-radius: 7px;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.confirm:hover {
+    opacity: 0.6;
+}
+
+/* Thank You */
+.thankyou {
+    width: 100%;
+    height: 100%;
+}
+
+.thankyou_box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.thankyou_content {
+    position: absolute;
+    padding: 0 40px;
+    text-align: center;
+}
+
+.thankyou_content h3 {
+    margin-top: 30px;
+}
+
+.thankyou_content p {
+    line-height: 1.4;
+}
+
+/* Credits */
+.attribution {
+    position: absolute;
+    bottom: 5%;
+}
+
+/* Tablet and Mobile styles */
+@media screen and (max-width: 896px) {
+    #container {
+        display: block;
+        height: 105.75vh;
+    }
+
+    .mobile_img_steps {
+        display: block;
+        width: 100%;
+        position: relative;
+    }
+
+    .mobile_img_steps img {
+        width: 100%;
+        object-fit: cover;
+        height: 250px;
+    }
+
+    .card {
+        position: absolute;
+        top: 15%;
+        width: calc(100vw - 50px);
+        height: auto;
+        padding: 35px 30px 20px;
+        box-shadow: 0 5px 20px hsl(229, 24%, 87%);
+    }
+
+    .steps_box_mobile {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 22.5%;
+    }
+
+    .step {
+        width: auto;
+        margin: 0 7px;
+    }
+
+    .left_box,
+    .steps_box {
+        display: none;
+    }
+
+    .right_box {
+        width: 100%;
+        padding: 0;
+    }
+
+    .three_plans {
+        display: block;
+    }
+
+    .plan_box {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin: 15px 0;
+    }
+
+    .plan_box div {
+        margin: 0 15px;
+    }
+
+    .plan_box img {
+        margin-bottom: 3px;
+    }
+
+    .plan_box h4,
+    .plan_box p {
+        margin: 0;
+        margin-bottom: 5px;
+    }
+
+    .monthly_yearly {
+        margin-top: -5px;
+        padding: 17px 0;
+    }
+
+    #AddOnsErrM {
+        bottom: -9%;
+    }
+
+    .total_box {
+        padding: 32px 28px 0;
+    }
+
+    .nextStep,
+    .confirm {
+        position: fixed;
+        right: 5%;
+        bottom: 3%;
+        z-index: 3;
+    }
+
+    .goBack {
+        position: fixed;
+        left: 1.75%;
+        bottom: 3%;
+        z-index: 3;
+    }
+
+    .white_bg_mb {
+        width: 100%;
+        height: 11.3%;
+        background-color: hsl(0, 0%, 100%);
+        position: fixed;
+        bottom: 0;
+        z-index: 2;
+    }
+
+    .thankyou_content {
+        position: static;
+        padding: 0;
+        margin-top: 75px;
+        margin-bottom: 65px;
+    }
+
+    .attribution {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    #container {
+        height: 127vh;
+    }
+
+    .addon_box {
+        display: block;
+        padding: 20px 15px 0;
+    }
+
+    .addon_box span {
+        top: 12.5%;
+        right: 5%;
+    }
+
+    #AddOnsErrM {
+        bottom: -6%;
+    }
+}
